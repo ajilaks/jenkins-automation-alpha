@@ -6,6 +6,7 @@ def build(String command) {
 def buildMultiple(List commands) {
     for (command in commands) {
         echo("executing ./mvnw ${command}")
+        sleep 5
     }
 
 }
