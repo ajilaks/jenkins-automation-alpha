@@ -3,7 +3,9 @@ def build(String command) {
     echo("executing ./mvnw ${command}")
 }
 
-def buildMultiple(List commands) {
+def buildMultiple(Map app, List commands) {
+    echo("app type ${app.type}")
+    echo("app version ${app.version}")
     for (command in commands) {
         echo("executing ./mvnw ${command}")
         sleep 5
