@@ -1,4 +1,4 @@
-def call(){
+def call(Map app, List commands){
     pipeline {
         parameters {
             choice(name:"BUILD_TYPE", choices:['BUILD', 'SNAPSHOT', 'RELEASE'])
@@ -32,8 +32,8 @@ def call(){
                     script {
                         hello.world()
                         maven.buildMultiple(
-                                [type:"java", version:"current"],
-                                ["clean", "test", "clean compile"])
+                                app,
+                                commands)
                     }
                 }
             }
